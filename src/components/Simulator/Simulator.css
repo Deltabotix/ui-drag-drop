@@ -1,0 +1,181 @@
+.simulator {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 200px);
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.simulator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}
+
+.simulator-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.simulator-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #45a049;
+}
+
+.btn-secondary {
+  background: #f44336;
+  color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #da190b;
+}
+
+.btn-tertiary {
+  background: #2196F3;
+  color: white;
+}
+
+.btn-tertiary:hover {
+  background: #0b7dda;
+}
+
+.simulator-content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.simulator-status {
+  margin-bottom: 1rem;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.status-dot.running {
+  background: #4CAF50;
+  animation: pulse 2s infinite;
+}
+
+.status-dot.stopped {
+  background: #f44336;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.simulator-devices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.device-panel {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.device-panel h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.empty-state {
+  color: #999;
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
+}
+
+.simulator-console {
+  background: #1e1e1e;
+  border-radius: 4px;
+  padding: 1rem;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+}
+
+.simulator-console h4 {
+  margin: 0 0 0.5rem 0;
+  color: #fff;
+}
+
+.console-output {
+  min-height: 100px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.console-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.console-log {
+  color: #d4d4d4;
+}
+
+.console-info {
+  color: #4fc3f7;
+}
+
+.console-success {
+  color: #81c784;
+}
+
+.console-warning {
+  color: #ffb74d;
+}
+
+.console-error {
+  color: #e57373;
+}
+

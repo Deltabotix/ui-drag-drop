@@ -1,0 +1,144 @@
+.connect-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.connect-dialog {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  min-width: 360px;
+  max-width: 90vw;
+}
+
+.connect-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #eee;
+}
+
+.connect-dialog-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.connect-dialog-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #666;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.connect-dialog-close:hover {
+  color: #333;
+}
+
+.connect-dialog-body {
+  padding: 1.25rem;
+}
+
+.connect-dialog-hint {
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.connect-dialog-ports {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.connect-dialog-select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+}
+
+.connect-dialog-loading,
+.connect-dialog-error,
+.connect-dialog-empty {
+  margin: 0;
+  font-size: 0.9rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+}
+
+.connect-dialog-loading {
+  color: #666;
+  background: #f5f5f5;
+}
+
+.connect-dialog-error {
+  color: #c62828;
+  background: #ffebee;
+}
+
+.connect-dialog-empty {
+  color: #666;
+  background: #fff3e0;
+}
+
+.connect-dialog-empty code {
+  font-size: 0.85em;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+}
+
+.connect-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #eee;
+}
+
+.connect-dialog-btn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.connect-dialog-btn.secondary {
+  background: #f5f5f5;
+  color: #333;
+  border-color: #ddd;
+}
+
+.connect-dialog-btn.secondary:hover {
+  background: #eee;
+}
+
+.connect-dialog-btn.primary {
+  background: #2196F3;
+  color: white;
+  border-color: #2196F3;
+}
+
+.connect-dialog-btn.primary:hover:not(:disabled) {
+  background: #1976D2;
+}
+
+.connect-dialog-btn.primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

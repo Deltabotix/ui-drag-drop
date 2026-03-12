@@ -1,0 +1,31 @@
+.blockly-workspace-container {
+  width: 100%;
+  height: calc(100vh - 200px);
+  min-height: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.blockly-workspace {
+  width: 100%;
+  flex: 1;
+  min-height: 350px;
+  touch-action: none; /* allow drag on touch devices */
+}
+
+.blockly-workspace-container .blocklySvg {
+  touch-action: none;
+}
+
+/* Blockly customization */
+.blocklyMainBackground {
+  stroke-width: 1;
+  stroke: #ccc;
+}
+
+.blocklyToolboxDiv {
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+}
+
