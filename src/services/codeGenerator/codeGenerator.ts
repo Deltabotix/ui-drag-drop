@@ -29,7 +29,7 @@ export class CodeGenerator {
   /**
    * Generate TypeScript code (client-side fallback)
    */
-  static generateTypeScript(blocklyXml: string): string {
+  static generateTypeScript(_blocklyXml: string): string {
     // This is a placeholder - in production, this would parse Blockly XML
     // and generate TypeScript code
     return `// Generated TypeScript code
@@ -40,7 +40,7 @@ export class CodeGenerator {
   /**
    * Generate Arduino code (client-side fallback)
    */
-  static generateArduino(blocklyXml: string, kitId: string): string {
+  static generateArduino(_blocklyXml: string, kitId: string): string {
     // This is a placeholder - in production, this would parse Blockly XML
     // and generate Arduino code with kit-specific mappings
     return `// Generated Arduino code for kit: ${kitId}

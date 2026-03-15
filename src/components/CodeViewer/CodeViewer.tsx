@@ -14,6 +14,7 @@ const CodeViewer: React.FC<CodeViewerProps> = ({
   code,
   language = 'typescript',
 }) => {
+  void language
   return (
     <div className="code-viewer">
       <div className="code-viewer-header">

@@ -103,7 +103,7 @@ const BlocklyWorkspace: React.FC<BlocklyWorkspaceProps> = ({
     }
 
     const toolboxContents = buildToolboxContents(blocksForToolbox)
-    const toolbox = { kind: 'categoryToolbox' as const, contents: toolboxContents }
+    const toolbox = { kind: 'categoryToolbox' as const, contents: toolboxContents } as any
 
     let workspace: Blockly.WorkspaceSvg
     try {
@@ -133,7 +133,7 @@ const BlocklyWorkspace: React.FC<BlocklyWorkspaceProps> = ({
       console.error('Blockly inject failed, retrying without custom blocks:', err)
       try {
         workspace = Blockly.inject(el, {
-          toolbox: { kind: 'categoryToolbox' as const, contents: buildToolboxContents([]) },
+          toolbox: { kind: 'categoryToolbox' as const, contents: buildToolboxContents([]) } as any,
           grid: { spacing: 20, length: 3, colour: '#ccc', snap: true },
           zoom: { controls: true, wheel: true, startScale: 1.0, maxScale: 3, minScale: 0.3, scaleSpeed: 1.2 },
           trashcan: true,

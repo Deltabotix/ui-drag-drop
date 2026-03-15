@@ -24,8 +24,8 @@ interface UploadManagerProps {
 const UploadManager: React.FC<UploadManagerProps> = ({
   assembledCode,
   selectedKitId = 'arduino-uno',
-  connectedPort,
-  connectedSerialPort,
+  connectedPort: _connectedPort,
+  connectedSerialPort: _connectedSerialPort,
 }) => {
   const [uploading, setUploading] = useState(false)
   const [log, setLog] = useState<string | null>(null)
