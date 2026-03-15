@@ -2,7 +2,8 @@ import React, { useState, useCallback } from 'react'
 import { hasWebSerial, requestPort } from '../../services/serialPortService'
 import './UploadManager.css'
 
-const COMPILE_API = '/api/v1/upload/compile'
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api/v1'
+const COMPILE_API = `${API_BASE.replace(/\/$/, '')}/upload/compile`
 const KIT_TO_FQBN: Record<string, string> = {
   'arduino-uno': 'arduino:avr:uno',
   'arduino-nano': 'arduino:avr:nano',
