@@ -17,7 +17,7 @@ function App() {
   const [viewMode, setViewMode] = useState<'blocks' | 'code'>('blocks')
   const [selectedKitId, setSelectedKitId] = useState<string>('')
   const [kits, setKits] = useState<any[]>([])
-  const [projects, setProjects] = useState<any[]>([])
+  const [, setProjects] = useState<any[]>([])
   const [currentProjectName, setCurrentProjectName] = useState<string>('')
   const [currentProjectId, setCurrentProjectId] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)

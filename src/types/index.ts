@@ -21,6 +21,10 @@ export interface ToolboxItem {
   text?: string;
   callbackKey?: string;
   items?: ToolboxItem[];
+  colour?: string;
+  color?: string;
+  contents?: ToolboxItem[];
+  custom?: string;
 }
 
 // Kit Types
@@ -128,6 +132,7 @@ export interface MotorState {
   pin: string | number;
   speed: number;
   direction: 'forward' | 'backward' | 'stop';
+  state?: 'running' | 'stopped';
 }
 
 export interface SensorState {
@@ -135,12 +140,14 @@ export interface SensorState {
   type: 'temperature' | 'humidity' | 'distance' | 'light' | 'button';
   pin: string | number;
   value: number | boolean;
+  unit?: string;
 }
 
 export interface ConsoleMessage {
-  timestamp: Date;
-  level: 'log' | 'warn' | 'error';
+  timestamp: Date | string;
+  level: 'log' | 'warn' | 'error' | 'info' | 'success' | 'warning';
   message: string;
+  type?: string;
 }
 
 // Upload Manager Types

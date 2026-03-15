@@ -15,7 +15,7 @@ const Simulator: React.FC<SimulatorProps> = ({ workspaceXml, generatedCode }) =>
     sensors: [],
     console: [],
   })
-  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   // Execute the program code
   const executeProgram = () => {
@@ -25,7 +25,7 @@ const Simulator: React.FC<SimulatorProps> = ({ workspaceXml, generatedCode }) =>
         console: [
           ...prev.console,
           {
-            type: 'error',
+            level: 'error' as const,
             message: 'No program loaded. Please create blocks first!',
             timestamp: new Date().toISOString(),
           },
@@ -39,7 +39,7 @@ const Simulator: React.FC<SimulatorProps> = ({ workspaceXml, generatedCode }) =>
       ...prev,
       console: [
         {
-          type: 'info',
+          level: 'log' as const,
           message: '🚀 Starting program execution...',
           timestamp: new Date().toISOString(),
         },
@@ -65,12 +65,12 @@ const Simulator: React.FC<SimulatorProps> = ({ workspaceXml, generatedCode }) =>
               console: [
                 ...prev.console,
                 {
-                  type: 'success',
+                  level: 'log' as const,
                   message: `✅ Loop completed! Executed ${iteration} times.`,
                   timestamp: new Date().toISOString(),
                 },
                 {
-                  type: 'info',
+                  level: 'log' as const,
                   message: '🏁 Program execution finished.',
                   timestamp: new Date().toISOString(),
                 },
@@ -99,7 +99,7 @@ const Simulator: React.FC<SimulatorProps> = ({ workspaceXml, generatedCode }) =>
               console: [
                 ...prev.console,
                 {
-                  type: 'log',
+                  level: 'log' as const,
                   message: `📋 Iteration ${iteration + 1}: Checking condition (${numbers[0]} ${operator === 'GT' ? '>' : operator === 'LT' ? '<' : '=='} ${numbers[1]}) = ${result}`,
                   timestamp: new Date().toISOString(),
                 },
@@ -121,12 +121,12 @@ const Simulator: React.FC<SimulatorProps> = ({ workspaceXml, generatedCode }) =>
           console: [
             ...prev.console,
             {
-              type: 'log',
+              level: 'log' as const,
               message: '📝 Program executed successfully!',
               timestamp: new Date().toISOString(),
             },
             {
-              type: 'success',
+              level: 'log' as const,
               message: '✅ Execution completed.',
               timestamp: new Date().toISOString(),
             },
@@ -139,7 +139,7 @@ const Simulator: React.FC<SimulatorProps> = ({ workspaceXml, generatedCode }) =>
         console: [
           ...prev.console,
           {
-            type: 'error',
+            level: 'error' as const,
             message: `❌ Execution error: ${error instanceof Error ? error.message : 'Unknown error'}`,
             timestamp: new Date().toISOString(),
           },
@@ -170,7 +170,7 @@ const Simulator: React.FC<SimulatorProps> = ({ workspaceXml, generatedCode }) =>
       console: [
         ...prev.console,
         {
-          type: 'warning',
+          level: 'warn' as const,
           message: '⏹️ Program stopped by user.',
           timestamp: new Date().toISOString(),
         },
@@ -376,7 +376,7 @@ const Simulator: React.FC<SimulatorProps> = ({ workspaceXml, generatedCode }) =>
               simulatorState.console.map((log, index) => (
                 <div
                   key={index}
-                  className={`console-line console-${log.type}`}
+                  className={`console-line console-${log.level || 'log'}`}
                   style={{
                     marginBottom: '0.25rem',
                     padding: '0.25rem 0',
